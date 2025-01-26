@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fat Penguin Generator</title>
+  <!-- Fun retro font -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
   <style>
+    /* ========== PENGUIN-THEMED COLOR PALETTE ========== */
     :root {
-      --bg-color: #001f3f;
-      --card-bg: #003366;
-      --text-blue: #66d9ff;
-      --accent-blue: #007acc;
-      --accent-blue-light: #99e6ff;
-      --gray-text: #c4c4c4;
+      --bg-color: #0b1d3d;          /* Deep icy blue */
+      --card-bg: #1a3f5a;          /* Slightly lighter blue */
+      --text-blue: #a7dfff;       /* Bright icy blue */
+      --accent-blue: #3498db;     /* Vibrant blue */
+      --accent-blue-light: #74c0ff; /* Lighter accent for hover states */
+      --gray-text: #c4c4c4;        /* Grayish for secondary text */
     }
 
+    /* ========== GLOBAL RESET & BODY ========== */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: 'Press Start 2P', cursive;
       background: var(--bg-color);
@@ -30,28 +33,25 @@
       display: flex;
       flex-direction: column;
     }
-
     a {
       text-decoration: none;
       color: var(--text-blue);
       transition: color 0.3s ease;
     }
-
     a:hover {
       color: var(--accent-blue-light);
     }
 
+    /* ========== HERO SECTION ========== */
     .hero {
       padding: 60px 20px 40px 20px;
     }
-
     .hero h1 {
       font-size: 2.5em;
       color: var(--text-blue);
       text-shadow: 0 0 10px var(--text-blue);
       margin-bottom: 20px;
     }
-
     .hero p {
       font-size: 0.95em;
       max-width: 600px;
@@ -59,24 +59,30 @@
       line-height: 1.4;
       color: var(--gray-text);
     }
-
     .hero .links {
       margin-top: 30px;
     }
-
     .hero a {
       display: inline-block;
       margin: 0 10px;
       padding: 6px 12px;
       font-size: 0.85em;
       border-radius: 4px;
-      background-color: rgba(102, 217, 255, 0.1);
+      background-color: rgba(167, 223, 255, 0.1);
+    }
+    .hero a[href="#how-it-works"]::before {
+      content: ">> ";
+      color: var(--accent-blue-light);
+    }
+    .hero a[href="#penguin-lore"]::before {
+      content: ">> ";
+      color: var(--accent-blue-light);
     }
 
+    /* ========== WALLET CONNECT SECTION ========== */
     .wallet-connect {
-      margin-top: 20px;
+      margin: 20px 0;
     }
-
     .wallet-connect button {
       font-size: 0.9em;
       padding: 10px 20px;
@@ -85,25 +91,66 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0, 122, 204, 0.2);
+      box-shadow: 0 4px 8px rgba(52, 152, 219, 0.2);
       transition: background 0.3s, transform 0.2s;
     }
-
     .wallet-connect button:hover {
       background: var(--accent-blue-light);
       transform: translateY(-2px);
     }
 
+    /* ========== Creator BOX ========== */
+    .Creator {
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 500px;
+      background: var(--card-bg);
+      border: 2px dashed var(--accent-blue);
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);
+      display: inline-block;
+    }
+    .Creator input {
+      font-size: 0.9em;
+      padding: 8px;
+      width: 280px;
+      margin: 10px;
+      border-radius: 6px;
+      border: 2px solid var(--accent-blue);
+      background: #0b1d3d;
+      color: var(--text-blue);
+      outline: none;
+      transition: border 0.3s;
+    }
+    .Creator input:focus {
+      border-color: var(--accent-blue-light);
+    }
+    .Creator button {
+      font-size: 0.9em;
+      padding: 10px 20px;
+      background: var(--accent-blue);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(52, 152, 219, 0.2);
+      transition: background 0.3s, transform 0.2s;
+    }
+    .Creator button:hover {
+      background: var(--accent-blue-light);
+      transform: translateY(-2px);
+    }
+
+    /* ========== INFO SECTION ========== */
     .info-section {
       max-width: 800px;
-      margin: 50px auto;
-      background: var(--card-bg);
+      margin: 0 auto 50px auto;
+      background: #1a3f5a;
       padding: 30px;
       border-radius: 6px;
       text-align: left;
-      box-shadow: 0 2px 8px rgba(0, 122, 204, 0.1);
+      box-shadow: 0 2px 8px rgba(52,152,219,0.1);
     }
-
     .info-section h2 {
       text-align: center;
       color: var(--accent-blue);
@@ -111,7 +158,12 @@
       font-size: 1.3em;
       text-shadow: 0 0 5px var(--accent-blue);
     }
-
+    .info-section h3 {
+      color: var(--accent-blue-light);
+      margin-top: 20px;
+      font-size: 1em;
+      margin-bottom: 10px;
+    }
     .info-section p {
       line-height: 1.4;
       margin-bottom: 15px;
@@ -123,63 +175,34 @@
       margin-bottom: 20px;
     }
 
-    .Creator {
-      margin: 30px auto;
-      padding: 20px;
-      max-width: 500px;
-      background: var(--card-bg);
-      border: 2px dashed var(--accent-blue);
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0, 122, 204, 0.1);
-      display: inline-block;
+    /* ========== Penguin Breeds Section ========== */
+    .lore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
     }
-
-    .Creator input {
-      font-size: 0.9em;
-      padding: 8px;
-      width: 280px;
-      margin: 10px;
-      border-radius: 6px;
-      border: 2px solid var(--accent-blue);
-      background: #001f3f;
+    .lore-item {
+      background: #1a3f5a;
+      padding: 15px;
+      border-radius: 4px;
       color: var(--text-blue);
-      outline: none;
-      transition: border 0.3s;
+      border: 1px solid var(--accent-blue);
+      box-shadow: 0 2px 5px rgba(52,152,219,0.1);
     }
-
-    .Creator input:focus {
-      border-color: var(--accent-blue-light);
-    }
-
-    .Creator button {
+    .lore-item h4 {
+      margin-top: 0;
+      color: var(--accent-blue-light);
       font-size: 0.9em;
-      padding: 10px 20px;
-      background: var(--accent-blue);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0, 122, 204, 0.2);
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    .Creator button:hover {
-      background: var(--accent-blue-light);
-      transform: translateY(-2px);
-    }
-
-    footer {
-      margin-top: auto;
-      padding: 20px 0;
-      background: var(--accent-blue);
-      color: #000;
-      font-size: 0.7em;
+      margin-bottom: 8px;
       text-transform: uppercase;
-      box-shadow: 0 -4px 8px rgba(0, 122, 204, 0.2);
+      letter-spacing: 1px;
     }
   </style>
 </head>
 <body>
+
+  <!-- Hero Section -->
   <div class="hero">
     <h1>Fat Penguin Generator</h1>
     <p>Connect your Phantom wallet and adopt your very own ASCII-styled Penguin.</p>
@@ -188,54 +211,75 @@
       <a href="#penguin-lore">Penguin Breeds & Traits</a>
     </div>
     <div class="wallet-connect">
-      <button id="connect-wallet">CONNECT WALLET</button>
+      <button id="connect-wallet" onclick="connectWallet()">CONNECT WALLET</button>
     </div>
   </div>
 
+  <!-- How It Works Section -->
   <div class="info-section" id="how-it-works">
     <h2>How It Works</h2>
     <p>In this icy domain, each Penguin is produced by hashing your wallet address + an optional ID, then mapping that hash to ASCII penguin attributes.</p>
     <ol>
-      <li><strong>Connect Wallet:</strong> Use your Phantom wallet to link into the system.</li>
-      <li><strong>ID Input:</strong> Provide a unique ID or default to your address alone.</li>
-      <li><strong>Hashing Protocol:</strong> Transforms your input into a 32-bit integer we use for penguin data.</li>
-      <li><strong>Penguin Attributes:</strong> We assign species, color, trait, accessory, and "waddle level."</li>
-      <li><strong>Deterministic Output:</strong> The same inputs yield the same ASCII penguin, exclusively yours!</li>
+      <li><strong>Connect Wallet</strong>: Use your Phantom wallet to link into the system.</li>
+      <li><strong>ID Input</strong>: Provide a unique ID or default to your address alone.</li>
+      <li><strong>Hashing Protocol</strong>: Transforms your input into a 32-bit integer we use for penguin data.</li>
+      <li><strong>Penguin Attributes</strong>: We assign species, color, trait, accessory, and "waddle level."</li>
+      <li><strong>Deterministic Output</strong>: The same inputs yield the same ASCII penguin, exclusively yours!</li>
     </ol>
+    <p>This solution merges cryptographic determinism with chilly penguin vibes.</p>
   </div>
 
+  <!-- Penguin Breeds Section -->
   <div class="info-section" id="penguin-lore">
     <h2>Penguin Breeds & Traits</h2>
-    <p>From majestic Emperor Penguins to playful Little Blues, each ASCII Penguin design has its own charm and personality. Here are a few you might encounter:</p>
+    <p>From regal Emperor Penguins to spunky Rockhoppers, each ASCII Penguin design has its own charm and personality. Here are a few you might encounter:</p>
     <div class="lore-grid">
       <div class="lore-item">
         <h4>Emperor Penguin</h4>
-        <p>Majestic and regal, the Emperor Penguin stands tall with a noble presence.</p>
-      </div>
-      <div class="lore-item">
-        <h4>Little Blue Penguin</h4>
-        <p>Playful and spirited, these small penguins bring joy to the icy world.</p>
-      </div>
-      <div class="lore-item">
-        <h4>Chinstrap Penguin</h4>
-        <p>Bold and daring, Chinstrap Penguins thrive in the harshest climates.</p>
+        <p>Majestic and stoic, the Emperor Penguin commands respect in the coldest of climates.</p>
       </div>
       <div class="lore-item">
         <h4>Rockhopper Penguin</h4>
-        <p>With its bright crests, the Rockhopper Penguin is the punk rocker of the penguin world.</p>
+        <p>With spiky feathers and a bold attitude, the Rockhopper is the punk of the penguin world.</p>
+      </div>
+      <div class="lore-item">
+        <h4>Adelie Penguin</h4>
+        <p>Small and speedy, the Adelie Penguin zips across icy terrain with style.</p>
+      </div>
+      <div class="lore-item">
+        <h4>Chinstrap Penguin</h4>
+        <p>Sporting a stylish "chinstrap" marking, this penguin is always dressed to impress.</p>
       </div>
     </div>
     <h3>Rarity & Collectibility</h3>
     <p>Some penguins manifest special accessories, rare colors, or legendary waddle levels. Keep testing different IDs to find them all!</p>
   </div>
 
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 FAT PENGUIN GENERATOR</p>
+  </footer>
+
+  <script>
+    let userWalletConnected = false;
+
+    function connectWallet() {
+      alert('Connecting to Phantom Wallet...');
+      userWalletConnected = true; // Simulate wallet connection for this demo
+      if (userWalletConnected) {
+        document.getElementById('penguin-creator').style.display = 'block';
+      }
+    }
+  </script>
+
+  <!-- Penguin Creator Section -->
   <div class="info-section" id="penguin-creator" style="display: none;">
     <h2>Create Your Fat Penguin</h2>
     <p>Once your wallet is connected, your Fat Penguin will be generated based on your unique wallet address and ID. Explore the penguin’s design, characteristics, and rarity!</p>
     <div class="Creator">
       <label for="penguin-id">Enter a Unique Penguin ID:</label>
       <input type="text" id="penguin-id" placeholder="e.g., MyUniquePenguin123"/>
-      <button id="generate-penguin">Generate My Fat Penguin</button>
+      <button onclick="generatePenguin()">Generate My Fat Penguin</button>
     </div>
     <div id="penguin-details" style="margin-top: 20px; display: none;">
       <h3>Your Fat Penguin</h3>
@@ -248,30 +292,18 @@
     </div>
   </div>
 
-  <footer>
-    <p>© 2025 FAT PENGUIN GENERATOR</p>
-  </footer>
-
   <script>
-    const connectWalletButton = document.getElementById('connect-wallet');
-    const penguinCreatorSection = document.getElementById('penguin-creator');
-    const generatePenguinButton = document.getElementById('generate-penguin');
-
-    connectWalletButton.addEventListener('click', () => {
-      alert('Wallet connected!');
-      penguinCreatorSection.style.display = 'block';
-    });
-
-    generatePenguinButton.addEventListener('click', () => {
+    function generatePenguin() {
       const penguinID = document.getElementById('penguin-id').value.trim();
       if (!penguinID) {
         alert('Please enter a valid Penguin ID!');
         return;
       }
 
-      const speciesList = ['Emperor Penguin', 'Little Blue Penguin', 'Chinstrap Penguin', 'Rockhopper Penguin'];
-      const colors = ['Black & White', 'Blue', 'Yellow', 'Spotted'];
-      const accessories = ['Crown', 'Scarf', 'Ice Necklace', 'Fish Bowl'];
+      // Simulated penguin attributes
+      const speciesList = ['Emperor Penguin', 'Rockhopper Penguin', 'Adelie Penguin', 'Chinstrap Penguin'];
+      const colors = ['Black & White', 'Blue', 'Gray', 'Speckled'];
+      const accessories = ['Scarf', 'Top Hat', 'Snow Goggles', 'Ice Necklace'];
 
       const species = speciesList[Math.floor(Math.random() * speciesList.length)];
       const color = colors[Math.floor(Math.random() * colors.length)];
@@ -280,13 +312,9 @@
       const rarity = waddleLevel > 80 ? 'Legendary' : waddleLevel > 50 ? 'Rare' : 'Common';
 
       const penguinASCII = `
-         .--.
-       | o_o |
-       |:_/  |
-      //   \  \
-     (|     | )
-    /'\_   _/`\
-    \___)=(___/  ${species} Penguin
+         (o<   
+         //\\  
+         V_/_)  ${species} Penguin
       `;
 
       document.getElementById('penguin-ascii').textContent = penguinASCII;
@@ -297,7 +325,7 @@
       document.getElementById('penguin-rarity').textContent = rarity;
 
       document.getElementById('penguin-details').style.display = 'block';
-    });
+    }
   </script>
 </body>
 </html>
